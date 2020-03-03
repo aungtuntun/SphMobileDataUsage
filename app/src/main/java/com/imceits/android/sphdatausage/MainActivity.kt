@@ -26,11 +26,12 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
         loadData()
         dataBinding.btnRefresh.setOnClickListener{
+            viewModel.loadData()
             loadData()
         }
     }
 
-    fun loadData() {
+    private fun loadData() {
         viewModel.dataList.observe(this, Observer {
             dataBinding.resource = it
             it?.let {

@@ -42,6 +42,7 @@ import retrofit2.Response
         apiResponse.enqueue(object : Callback<RequestType> {
             override fun onFailure(call: Call<RequestType>, t: Throwable) {
                 onFetchFailed()
+                result.removeSource(dbSource)
                 result.addSource(dbSource) {newData ->
                     setValue(Resource.error(t.message!!, newData))
                 }

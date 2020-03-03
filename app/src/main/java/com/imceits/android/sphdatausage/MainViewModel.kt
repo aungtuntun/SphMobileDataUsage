@@ -9,13 +9,18 @@ import com.imceits.android.sphdatausage.data.MobileDatabase
 import com.imceits.android.sphdatausage.data.UsageData
 import com.imceits.android.sphdatausage.network.Resource
 
+
 class MainViewModel(application: Application) : AndroidViewModel(application) {
 private val repository: DataRepository
-    val dataList: LiveData<Resource<List<UsageData>>>
+    var dataList: LiveData<Resource<List<UsageData>>>
 
     init {
         val dataDao = MobileDatabase.getInstance(application).dataDao()
         repository = DataRepository(dataDao)
+        dataList = repository.loadMobileDataUsages()
+    }
+
+    fun loadData() {
         dataList = repository.loadMobileDataUsages()
     }
 }
