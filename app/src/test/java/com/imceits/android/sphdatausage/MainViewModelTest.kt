@@ -1,12 +1,8 @@
 package com.imceits.android.sphdatausage
 
-import android.app.Application
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import androidx.lifecycle.Observer
 import androidx.test.core.app.ApplicationProvider
-import androidx.test.platform.app.InstrumentationRegistry
 import com.imceits.android.sphdatausage.data.*
-import com.imceits.android.sphdatausage.network.Resource
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.core.IsNull.nullValue
 import org.junit.Before
@@ -15,9 +11,6 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
 import org.mockito.AdditionalMatchers.not
-import org.mockito.Mockito.mock
-import java.util.*
-import kotlin.test.assertEquals
 
 @RunWith(JUnit4::class)
 class MainViewModelTest {
@@ -29,7 +22,8 @@ class MainViewModelTest {
 
     @Before
     fun setupViewModel() {
-        mainViewModel = MainViewModel(ApplicationProvider.getApplicationContext())
+        mainViewModel =
+            MainViewModel(ApplicationProvider.getApplicationContext())
         dataDao = MobileDatabase.getInstance(ApplicationProvider.getApplicationContext()).dataDao()
        // val repository = mock(DataRepository::class.java)
     }

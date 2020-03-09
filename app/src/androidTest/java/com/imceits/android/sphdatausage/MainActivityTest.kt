@@ -1,10 +1,10 @@
 package com.imceits.android.sphdatausage
 
 import androidx.test.ext.junit.rules.ActivityScenarioRule
+import com.imceits.android.sphdatausage.ui.MainActivity
 import org.junit.After
 import org.junit.Before
 
-import org.junit.Assert.*
 import org.junit.Rule
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4

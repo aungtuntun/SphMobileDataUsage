@@ -1,17 +1,14 @@
 package com.imceits.android.sphdatausage.data
 
-import android.content.Context
 import androidx.room.Database
-import androidx.room.Room
 import androidx.room.RoomDatabase
-import kotlinx.coroutines.CoroutineScope
 
 @Database(entities = [MobileData::class, QuarterData::class], version = 1, exportSchema = false)
 abstract class MobileDatabase: RoomDatabase() {
 
     abstract fun dataDao() : DataDao
 
-    companion object {
+/*    companion object {
         @Volatile
         private var INSTANCE: MobileDatabase? = null
 
@@ -30,5 +27,5 @@ abstract class MobileDatabase: RoomDatabase() {
                 return instance
             }
         }
-    }
+    }*/
 }

@@ -5,8 +5,7 @@ import androidx.room.*
 import org.jetbrains.annotations.NotNull
 
 @Dao
-public abstract class DataDao {
-
+abstract class DataDao {
 
  public fun insertData(@NotNull dataList: List<MobileData>) {
   for (i in dataList) {

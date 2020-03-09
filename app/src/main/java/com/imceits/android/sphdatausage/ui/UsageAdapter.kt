@@ -1,10 +1,9 @@
-package com.imceits.android.sphdatausage
+package com.imceits.android.sphdatausage.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.imceits.android.sphdatausage.data.QuarterData
-import com.imceits.android.sphdatausage.data.UsageData
 import com.imceits.android.sphdatausage.databinding.DialogContentBinding
 
 class UsageAdapter: RecyclerView.Adapter<UsageAdapter.ListViewHolder>() {
@@ -18,7 +17,9 @@ class UsageAdapter: RecyclerView.Adapter<UsageAdapter.ListViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
         val itemBinding = DialogContentBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return ListViewHolder(itemBinding)
+        return ListViewHolder(
+            itemBinding
+        )
     }
 
     override fun getItemCount(): Int {

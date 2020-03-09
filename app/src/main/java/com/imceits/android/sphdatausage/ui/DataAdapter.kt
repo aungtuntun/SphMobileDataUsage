@@ -1,4 +1,4 @@
-package com.imceits.android.sphdatausage
+package com.imceits.android.sphdatausage.ui
 
 import android.app.AlertDialog
 import android.content.Context
@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.RecyclerView
+import com.imceits.android.sphdatausage.R
 import com.imceits.android.sphdatausage.data.UsageData
 import com.imceits.android.sphdatausage.databinding.DataItemBinding
 import com.imceits.android.sphdatausage.databinding.DialogLayoutBinding
@@ -21,7 +22,9 @@ private var dataList: MutableList<UsageData> = mutableListOf()
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DataViewHolder {
         val itemBinding = DataItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return DataViewHolder(itemBinding)
+        return DataViewHolder(
+            itemBinding
+        )
     }
 
     override fun getItemCount(): Int {

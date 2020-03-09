@@ -4,17 +4,19 @@ import androidx.lifecycle.LiveData
 import com.imceits.android.sphdatausage.network.AppExecutors
 import com.imceits.android.sphdatausage.network.NetworkBoundResource
 import com.imceits.android.sphdatausage.network.Resource
-import com.imceits.android.sphdatausage.network.ServiceGenerator
 import retrofit2.Call
-import java.util.concurrent.Executors
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class DataRepository(private val dataDao: DataDao) {
-    val appExecutors: AppExecutors = AppExecutors(
+@Singleton
+class DataRepository @Inject constructor(private val dataDao: DataDao, private val apiService: APIService,
+                                         private val appExecutors: AppExecutors) {
+/*    val appExecutors: AppExecutors = AppExecutors(
        Executors.newSingleThreadExecutor(),
        Executors.newFixedThreadPool(4),
        AppExecutors.MainThreadExecutor()
-   )
-    val apiService: APIService = ServiceGenerator.createService(APIService::class.java)
+   )*/
+ //   val apiService: APIService = ServiceGenerator.createService(APIService::class.java)
 
     fun loadMobileDataUsages(): LiveData<Resource<List<UsageData>>> {
         return object : NetworkBoundResource<List<UsageData>, MobileResponse>(appExecutors = appExecutors) {
